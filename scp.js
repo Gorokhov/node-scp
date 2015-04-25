@@ -3,6 +3,7 @@
  * <cam@onswipe.com>
  */
 var exec = require('child_process').exec;
+var path = require('path');
 
 var scp = module.exports = {};
 
@@ -17,7 +18,7 @@ scp.send = function (options, cb) {
     (options.port == undefined ? '22' : options.port),
     '-o "ControlMaster no"', //callback is not fired if ssh sessions are shared
     options.file,
-    (options.user == undefined ? '' : options.user+'@') + options.host + ':' + options.path,
+    (options.user == undefined ? '' : options.user+'@') + options.host + ':' + path.join(options.path,path.basename(options.file)),
   ];
   exec(command.join(' '), function (err, stdout, stderr) {
     if (cb) {
