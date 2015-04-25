@@ -15,7 +15,7 @@
   "version": "0.0.4",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ecto/node-scp.git"
+    "url": "git@github.com:Gorokhov/node-scp.git"
   },
   "main": "scp.js",
   "engines": {
